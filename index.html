@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Aroma</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+    <header>
+
+        <nav class="navbar">
+            <div class="logo">Café Aroma</div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#produtos">Contato</a></li>
+                <li><a href="#Localizacao">Localização</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-conteudo">
+                <h1>Bem-vindo ao Mundo do Café</h1>
+                <p>Descubra os melhores grãos e receitas para apreciar o café em sua plenitude.</p>
+                <a href="#produtos" class="btn">Explore Nossos Produtos</a>
+            </div>
+        </section>
+        <section id="#sobre" class="sobre">
+            <div class="container">
+                <h2>Sobre Nós</h2>
+                <p>Somos apaixonados por café e dedicados a trazer a você os melhores grãos e acessórios para uma
+                    experiência única.</p>
+            </div>
+
+            <section id="#produtos" class="produtos">
+                <div class="container">
+                    <h2>Nossos Produtos</h2>
+
+                    <div class="produtos-grid">
+                        <article class="produto-card">
+                            <div class="produto-icon">☕︎ </div>
+                            <h3>Espresso</h3>
+                            <p>Um café forte e concentrado, perfeito para começar o dia.</p>
+                            <span class="preco">R$ 8,00</span>
+                        </article>
+                    
+                        <article class="produto-card">
+                            <div class="produto-icon">🧋</div>
+                            <h3>Capuccino</h3>
+                            <p>Conhecido por sua textura cremosa e sabor que harmoniza o amargor do café com a doçura do leite.</p>
+                            <span class="preco">R$ 12,00</span>
+                        </article>
+                    
+                        <article class="produto-card">
+                            <div class="produto-icon">🧊</div>
+                            <h3>Café Gelado</h3>
+                            <p>Refrescante e saboroso para os dias quentes.</p>
+                            <span class="preco">R$ 10,00</span>
+                        </article>
+                    </div>
+                    
+                </div>
+            </section>
+            <section id="#localizacao" class="localizacao">
+                <div class="container">
+                    <h2>Onde Estamos</h2>
+                    <p>Visite nossa loja física para uma experiência completa de café.</p>
+                    <div class="contato-info">
+                        <p>Endereço: Rua do Café, 123, Bairro do Sabor</p>
+                        <p>Telefone: (11) 1234-5678</p>
+                        <p>Email:contao@cafearoma.com.br</p>
+
+                        <div class="mapa">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772716.651247968!2d-51.13010015870205!3d-22.568119634043118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5954e33f8a6b%3A0x86de59f3af4fdb39!2sAroma%20caf%C3%A9!5e0!3m2!1spt-BR!2sbr!4v1760399897969!5m2!1spt-BR!2sbr"
+                                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+    </main>
+    <footer>
+        <p> 2025 Café Aroma. Todos os direitos reservados.</p>
+
+<!-- Assistente Virtual -->
+<link rel="stylesheet" href="assistente.css">
+
+<button id="chat-btn" title="Falar com a assistente">
+  <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Assistente do Café">
+</button>
+
+<div id="chat-box">
+  <div id="chat-header">☕ Assistente do Café</div>
+
+  <!-- Avatar animado -->
+  <div id="avatar-container">
+    <div class="avatar">
+      <div class="face">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="mouth"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="chat-content">
+    <div class="msg bot">Olá! Sou a assistente virtual do Café Aroma ☕</div>
+  </div>
+
+  <div id="chat-input">
+    <input type="text" id="user-input" placeholder="Digite sua pergunta...">
+    <button id="send-btn">Enviar</button>
+  </div>
+</div>
+
+<script src="assistente.js"></script>
+
+
+        
+
+</body>
+
+</html>

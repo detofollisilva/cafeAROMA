@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assistente Virtual do Café</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  /* Botão flutuante com avatar */
+  #chat-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+  }
+
+  #chat-btn img {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  /* Janela do chat */
+  #chat-box {
+    display: none;
+    position: fixed;
+    bottom: 110px;
+    right: 20px;
+    width: 320px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    overflow: hidden;
+  }
+
+  #chat-header {
+    background: #6f4e37;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  #chat-content {
+    height: 200px;
+    padding: 10px;
+    overflow-y: auto;
+  }
+
+  .msg {
+    margin: 5px 0;
+    padding: 8px 10px;
+    border-radius: 10px;
+    max-width: 80%;
+  }
+
+  .user { background-color: #e1ffc7; }
+  .bot { background-color: #f3f3f3; }
+
+  #chat-input {
+    display: flex;
+    border-top: 1px solid #ccc;
+  }
+
+  #chat-input input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+  }
+
+  #chat-input button {
+    background: #6f4e37;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<!-- Botão -->
+<button id="chat-btn" title="Falar com a assistente">
+  <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Assistente do Café">
+</button>
+
+<!-- Caixa de chat -->
+<div id="chat-box">
+  <div id="chat-header">☕ Assistente do Café</div>
+  <div id="chat-content">
+    <div class="msg bot">Olá! Sou a assistente virtual do Café Aroma ☕</div>
+  </div>
+  <div id="chat-input">
+    <input type="text" id="user-input" placeholder="Digite sua pergunta...">
+    <button id="send-btn">Enviar</button>
+  </div>
+</div>
+
+<script>
+  const chatBtn = document.getElementById('chat-btn');
+  const chatBox = document.getElementById('chat-box');
+  const sendBtn = document.getElementById('send-btn');
+  const userInput = document.getElementById('user-input');
+  const chatContent = document.getElementById('chat-content');
+
+  chatBtn.addEventListener('click', () => {
+    chatBox.style.display = (chatBox.style.display === 'block') ? 'none' : 'block';
+  });
+
+  sendBtn.addEventListener('click', sendMessage);
+  userInput.addEventListener('keypress', e => { if (e.key === 'Enter') sendMessage(); });
+
+  function sendMessage() {
+    const msg = userInput.value.trim();
+    if (!msg) return;
+    addMessage(msg, 'user');
+    userInput.value = '';
+    setTimeout(() => {
+      const resposta = getBotResponse(msg);
+      addMessage(resposta, 'bot');
+      speak(resposta);
+    }, 600);
+  }
+
+  function addMessage(text, sender) {
+    const msgDiv = document.createElement('div');
+    msgDiv.classList.add('msg', sender);
+    msgDiv.textContent = text;
+    chatContent.appendChild(msgDiv);
+    chatContent.scrollTop = chatContent.scrollHeight;
+  }
+
+  function getBotResponse(input) {
+    input = input.toLowerCase();
+    if (input.includes('café')) return 'Nosso café é feito com grãos especiais!';
+    if (input.includes('cardápio')) return 'Temos café, capuccino e bebidas geladas!';
+    return 'Desculpe, ainda estou aprendendo sobre isso ☕';
+  }
+
+  function speak(text) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'pt-BR';
+    speechSynthesis.speak(utterance);
+  }
+</script>
+
+</body>
+</html>
